@@ -1,7 +1,7 @@
 package com.shop.entity;
 
 import com.shop.constant.Role;
-import com.shop.dto.MemberFromDto;
+import com.shop.dto.MemberFormDto;
 import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -33,13 +33,13 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public static Member createMember(MemberFromDto memberFromDto,
+    public static Member createMember(MemberFormDto memberFormDto,
                                       PasswordEncoder passwordEncoder) {
-        String password = passwordEncoder.encode(memberFromDto.getPassword());
+        String password = passwordEncoder.encode(memberFormDto.getPassword());
         Member member = Member.builder()
-                .name(memberFromDto.getName())
-                .email(memberFromDto.getEmail())
-                .address(memberFromDto.getAddress())
+                .name(memberFormDto.getName())
+                .email(memberFormDto.getEmail())
+                .address(memberFormDto.getAddress())
                 .password(password)
                 .role(Role.USER)
                 .build();
