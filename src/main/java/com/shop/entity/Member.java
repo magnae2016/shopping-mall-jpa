@@ -41,7 +41,7 @@ public class Member {
                 .email(memberFormDto.getEmail())
                 .address(memberFormDto.getAddress())
                 .password(password)
-                .role(Role.USER)
+                .role(Role.ADMIN)
                 .build();
         return member;
     }
