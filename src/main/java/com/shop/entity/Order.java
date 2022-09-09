@@ -27,7 +27,7 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @Column(name = "member_id")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     private LocalDateTime orderDate;
@@ -35,7 +35,8 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
-    @OneToMany(mappedBy = "order")
+    @Builder.Default
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @CreatedDate
