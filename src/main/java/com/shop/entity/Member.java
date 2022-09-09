@@ -28,9 +28,9 @@ public class Member {
 
     private String password;
 
-    @Enumerated(EnumType.STRING)
     private String address;
 
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     public static Member createMember(MemberFromDto memberFromDto,
