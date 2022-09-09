@@ -18,8 +18,7 @@ import java.time.LocalDateTime;
 @Entity
 @ToString
 @Table(name = "item")
-@EntityListeners(AuditingEntityListener.class)
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @Column(name = "item_id")
@@ -41,10 +40,4 @@ public class Item {
 
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;
-
-    @CreatedDate
-    private LocalDateTime regTime;
-
-    @LastModifiedDate
-    private LocalDateTime updateTime;
 }

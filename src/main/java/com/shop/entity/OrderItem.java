@@ -3,6 +3,8 @@ package com.shop.entity;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderItem {
+public class OrderItem extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,10 +34,4 @@ public class OrderItem {
     private int orderPrice;
 
     private int count;
-
-    @CreatedDate
-    private LocalDateTime regTime;
-
-    @LastModifiedDate
-    private LocalDateTime updateTime;
 }
